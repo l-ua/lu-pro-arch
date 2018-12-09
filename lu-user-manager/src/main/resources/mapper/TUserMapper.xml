@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lu.pro.t.mapper.TUserMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.lu.pro.t.entity.TUser">
+    <result column="id" property="id" />
+    <result column="create_date" property="createDate" />
+    <result column="create_by" property="createBy" />
+    <result column="create_by_id" property="createById" />
+    <result column="update_date" property="updateDate" />
+    <result column="update_by" property="updateBy" />
+    <result column="update_by_id" property="updateById" />
+    <result column="is_delete" property="isDelete" />
+    <result column="version" property="version" />
+        <result column="cn_name" property="cnName" />
+        <result column="en_name" property="enName" />
+        <result column="nick_name" property="nickName" />
+        <result column="open_id" property="openId" />
+        <result column="sex" property="sex" />
+        <result column="birthday" property="birthday" />
+        <result column="age" property="age" />
+        <result column="tel" property="tel" />
+        <result column="email" property="email" />
+        <result column="education" property="education" />
+        <result column="occupation" property="occupation" />
+        <result column="height" property="height" />
+        <result column="weight" property="weight" />
+        <result column="id_card" property="idCard" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id,
+        create_date,
+        create_by,
+        create_by_id,
+        update_date,
+        update_by,
+        update_by_id,
+        is_delete,
+        version,
+        cn_name, en_name, nick_name, open_id, sex, birthday, age, tel, email, education, occupation, height, weight, id_card
+    </sql>
+
+</mapper>
