@@ -19,7 +19,7 @@ import io.swagger.annotations.Api;
 @RestController
 @RequestMapping("/t/t-user")
 @Api(value = "TUserController",description = "用户管理系统-用户信息表")
-public class TUserController extends BaseController<TUserServiceImpl,TUser> {
+public class TUserController extends BaseController<TUserServiceImpl,TUser,String> {
 
 }
 

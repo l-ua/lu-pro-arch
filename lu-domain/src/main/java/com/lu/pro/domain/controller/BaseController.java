@@ -16,8 +16,7 @@ import io.swagger.models.properties.Property;
 import lombok.SneakyThrows;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
 
 
 import java.io.Serializable;
@@ -32,7 +31,7 @@ import java.util.Map;
  * @Time 2018/12/6
  */
 @Api("所有controller基类 泛型S 代表service 泛型E代表entity")
-public class BaseController<S extends BaseServiceImpl, E extends BaseEntity> {
+public class BaseController<S extends BaseServiceImpl, E extends BaseEntity,ID extends Serializable> {
 
     @Autowired
     protected S service;
@@ -98,7 +97,7 @@ public class BaseController<S extends BaseServiceImpl, E extends BaseEntity> {
 
     @PostMapping("/remove-by-id")
     @ApiOperation(value = "通过主键删除", notes = "通过主键删除")
-    public R<Boolean> removeById(@RequestBody Serializable id) {
+    public R<Boolean> removeById(@RequestBody ID id) {
         return R.ok(service.removeById(id));
     }
 
@@ -116,7 +115,7 @@ public class BaseController<S extends BaseServiceImpl, E extends BaseEntity> {
 
     @PostMapping("/remove-by-ids")
     @ApiOperation(value = "通过主键集合删除", notes = "通过主键集合删除")
-    public R<Boolean> removeByIds(@RequestBody Collection<? extends Serializable> idList) {
+    public R<Boolean> removeByIds(@RequestBody Collection<ID> idList) {
         return R.ok(service.removeByIds(idList));
     }
 
@@ -138,15 +137,15 @@ public class BaseController<S extends BaseServiceImpl, E extends BaseEntity> {
         return R.ok(service.updateBatchById(entityList));
     }
 
-    @PostMapping("/get-by-id")
+    @GetMapping(value = "/get-by-id/{id}" )
     @ApiOperation(value = "通过主键获取记录", notes = "通过主键获取记录")
-    public R<E> getById(@RequestBody Serializable id) {
+    public R<E> getById(@PathVariable ID id) {
         return R.ok((E) service.getById(id));
     }
 
     @PostMapping("/get-by-ids")
     @ApiOperation(value = "通过主键集合获取记录", notes = "通过主键集合获取记录")
-    public R<Collection<E>> listByIds(@RequestBody Collection<? extends Serializable> idList) {
+    public R<Collection<E>> listByIds(@RequestBody Collection<ID> idList) {
         return R.ok(service.listByIds(idList));
     }
 

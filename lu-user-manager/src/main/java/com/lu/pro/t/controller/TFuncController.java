@@ -19,7 +19,7 @@ import io.swagger.annotations.Api;
 @RestController
 @RequestMapping("/t/t-func")
 @Api(value = "TFuncController",description = "功能点")
-public class TFuncController extends BaseController<TFuncServiceImpl,TFunc> {
+public class TFuncController extends BaseController<TFuncServiceImpl,TFunc,String> {
 
 }
 

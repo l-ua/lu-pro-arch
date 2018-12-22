@@ -19,7 +19,7 @@ import io.swagger.annotations.Api;
 @RestController
 @RequestMapping("/t/t-user-role-rel")
 @Api(value = "TUserRoleRelController",description = "用户角色表")
-public class TUserRoleRelController extends BaseController<TUserRoleRelServiceImpl,TUserRoleRel> {
+public class TUserRoleRelController extends BaseController<TUserRoleRelServiceImpl,TUserRoleRel,String> {
 
 }
 

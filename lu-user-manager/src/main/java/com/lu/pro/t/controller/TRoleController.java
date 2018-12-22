@@ -19,7 +19,7 @@ import io.swagger.annotations.Api;
 @RestController
 @RequestMapping("/t/t-role")
 @Api(value = "TRoleController",description = "角色表")
-public class TRoleController extends BaseController<TRoleServiceImpl,TRole> {
+public class TRoleController extends BaseController<TRoleServiceImpl,TRole,String> {
 
 }
 
